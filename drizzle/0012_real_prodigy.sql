@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `recurring_task_skips_rule_date_unique` ON `recurring_task_skips` (`recurring_task_id`,`date_key`);

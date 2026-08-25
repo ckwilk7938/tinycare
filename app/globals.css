@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root { --background: #f7f8fc; --foreground: #172033; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; touch-action: pan-x pan-y; }
+body { margin: 0; overflow-x: hidden; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; }
+button, input, select { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+
+.action-card { display: flex; min-height: 108px; min-width: 0; touch-action: manipulation; flex-direction: column; align-items: flex-start; justify-content: flex-end; border: 0; border-radius: 18px; padding: 13px; text-align: left; -webkit-tap-highlight-color: transparent; transition: transform 150ms ease, box-shadow 150ms ease; }
+.action-card:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(32, 46, 82, .10); }
+.action-card svg { margin-bottom: auto; height: 24px; width: 24px; }
+.action-card span { font-size: 17px; font-weight: 800; line-height: 1.1; }
+.action-card small { margin-top: 2px; font-size: 12px; font-weight: 600; line-height: 1.15; opacity: .72; }
+.action-bottle { background: #e8efff; color: #2453cc; }
+.action-wet { background: #fff3c9; color: #8b6100; }
+.action-dirty { background: #f1e2d5; color: #704522; }
+.action-sleep { background: #eeeafd; color: #5a43aa; }
+
+.summary-card { min-width: 0; border-radius: 18px; padding: 13px; }
+.summary-card p, .summary-card small { margin: 0; display: block; font-size: 12px; font-weight: 700; opacity: .72; }
+.summary-card strong { display: block; margin: 8px 0 1px; font-size: clamp(20px, 6vw, 29px); line-height: 1; }
+.summary-icon { display: inline-flex; margin-bottom: 6px; }
+.summary-blue { background: #e8efff; color: #2453cc; }
+.summary-yellow { background: #fff3c9; color: #8b6100; }
+.summary-purple { background: #eeeafd; color: #5a43aa; }
+
+.field-label { display: grid; gap: 7px; color: #4d5870; font-size: 14px; font-weight: 750; }
+.field-label input, .field-label select { width: 100%; min-width: 0; border: 1px solid #dce1ec; border-radius: 12px; background: #fff; padding: 12px; color: #172033; font-weight: 600; outline: none; }
+.field-label input:focus, .field-label select:focus { border-color: #5573de; box-shadow: 0 0 0 3px #e3eaff; }
+.field-label small { color: #68718a; font-size: 12px; }
+.input-suffix { position: relative; }
+.input-suffix input { padding-right: 46px; }
+.input-suffix span { position: absolute; right: 12px; top: 12px; color: #7b8499; font-size: 13px; font-weight: 700; }
+.check-row { display: flex; align-items: center; gap: 10px; border-radius: 12px; background: #f3f5fa; padding: 13px; color: #4d5870; font-size: 14px; font-weight: 700; }
+.check-row input { accent-color: #3559d9; }
+.composer-icon { display: flex; height: 46px; width: 46px; align-items: center; justify-content: center; border-radius: 15px; }
+.event-icon { display: flex; height: 42px; width: 42px; flex: none; align-items: center; justify-content: center; border-radius: 14px; }
+.event-icon.feed { background: #e8efff; color: #2453cc; }
+.event-icon.pee { background: #fff3c9; color: #8b6100; }
+.event-icon.poop { background: #f1e2d5; color: #704522; }
+.event-icon.sleep { background: #eeeafd; color: #5a43aa; }
+.event-icon.medication { background: #fff0f5; color: #b33f63; }
+
+.expected-events-panel { overflow: hidden; border: 1px solid #c8d8fb; border-radius: 18px; background: #f7faff; }
+.expected-events-toggle { display: flex; width: 100%; align-items: center; gap: 12px; padding: 12px; color: #2453cc; text-align: left; touch-action: manipulation; }
+.expected-events-toggle:active { background: #eef4ff; }
+.expected-events-toggle-icon { display: flex; height: 40px; width: 40px; flex: none; align-items: center; justify-content: center; border-radius: 13px; background: #e8efff; color: #2453cc; }
+.expected-events-chevron { flex: none; color: #5270b6; }
+.expected-events-list { border-top: 1px dashed #b8ccfb; padding: 0 12px 4px; }
+.expected-events-list > article + article { border-top: 1px dashed #d8e2ff; }
+.expected-task-row { margin: 8px 0; border: 1px dashed #f0b8ca; border-radius: 16px; background: #fff8fa; padding: 12px; }
+.expected-task-icon { background: #ffe7ee; color: #b33f63; }
+.expected-task-badge { border-radius: 999px; background: #ffe7ee; padding: 2px 7px; color: #b33f63; font-size: 11px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.expected-task-title { color: #a23456; }
+.expected-task-time { color: #bd5877; }
+.expected-task-detail { color: #8d7080; }
+.expected-task-actions { margin-left: auto; }
+.completed-task-row { border-radius: 16px; }
+.completed-task-icon { background: #e8f5f1; color: #167a63; }
+.completed-task-badge { border-radius: 999px; background: #e8f5f1; padding: 2px 7px; color: #167a63; font-size: 11px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.recurring-task-badge { display: inline-flex; align-items: center; gap: 3px; border-radius: 999px; background: #f5f6fa; padding: 2px 7px; color: #68718a; font-size: 11px; font-weight: 900; letter-spacing: .02em; }
+.task-done-button { display: inline-flex; min-height: 36px; align-items: center; gap: 5px; border-radius: 999px; background: #e8f5f1; padding: 0 10px; color: #167a63; font-size: 12px; font-weight: 900; touch-action: manipulation; }
+.task-done-button:active { transform: scale(.98); }
+.task-done-button.is-complete { background: #f0f2f6; color: #68718a; }
+.weekday-chip { display: flex; height: 38px; align-items: center; justify-content: center; border-radius: 12px; background: #f5f6fa; color: #68718a; font-size: 13px; font-weight: 900; touch-action: manipulation; }
+.weekday-chip.is-selected { background: #3559d9; color: #ffffff; }
+
+@media (max-width: 420px) {
+  .action-card { min-height: 96px; border-radius: 17px; padding: 12px; }
+  .action-card span { font-size: 16px; }
+  .action-card small { font-size: 11.5px; }
+  .summary-card { border-radius: 16px; padding: 11px 9px; }
+  .summary-card p, .summary-card small { font-size: 11px; }
+}
+
+/* The automatic theme is scoped to the tracker so the family app can switch
+   without changing the browser's other pages. */
+.tracker-dark { background: #101725 !important; color: #eef3fa !important; }
+.tracker-dark .bg-white { background-color: #182233 !important; }
+.tracker-dark .bg-\[\#f7f8fc\] { background-color: #101725 !important; }
+.tracker-dark .bg-\[\#e8edff\] { background-color: #22345a !important; }
+.tracker-dark .bg-\[\#eef3ff\], .tracker-dark .bg-\[\#e8f0fe\], .tracker-dark .bg-\[\#e8efff\] { background-color: #1a2d4f !important; }
+.tracker-dark .bg-\[\#e9ecf4\], .tracker-dark .bg-\[\#f5f6fa\], .tracker-dark .bg-\[\#f3f5fa\] { background-color: #202b3d !important; }
+.tracker-dark .bg-\[\#e8f5f1\] { background-color: #173a31 !important; }
+.tracker-dark .bg-\[\#fff7df\], .tracker-dark .bg-\[\#fff7d6\], .tracker-dark .bg-\[\#fff3c9\] { background-color: #3a321c !important; }
+.tracker-dark .bg-\[\#fff0ef\] { background-color: #412229 !important; }
+.tracker-dark .bg-\[\#eeeafd\], .tracker-dark .bg-\[\#eee7fb\] { background-color: #2c244a !important; }
+.tracker-dark .bg-\[\#f1e2d5\], .tracker-dark .bg-\[\#f3e5d3\] { background-color: #3d2d24 !important; }
+.tracker-dark .bg-\[\#fffaf3\], .tracker-dark .bg-\[\#fffdf0\] { background-color: #1b2532 !important; }
+.tracker-dark .bg-\[\#e9f3ee\] { background-color: #17392f !important; }
+.tracker-dark .bg-\[\#f5eadb\] { background-color: #2a3240 !important; }
+.tracker-dark .text-\[\#172033\], .tracker-dark .text-\[\#2a221b\] { color: #eef3fa !important; }
+.tracker-dark .text-\[\#4d5870\], .tracker-dark .text-\[\#53617a\], .tracker-dark .text-\[\#657089\], .tracker-dark .text-\[\#68718a\], .tracker-dark .text-\[\#778197\], .tracker-dark .text-\[\#798299\], .tracker-dark .text-\[\#8a93a7\] { color: #aeb9ca !important; }
+.tracker-dark .text-\[\#52607a\], .tracker-dark .text-\[\#5d6a84\], .tracker-dark .text-\[\#657089\] { color: #c0cad8 !important; }
+.tracker-dark .text-\[\#766552\], .tracker-dark .text-\[\#6b5b4a\], .tracker-dark .text-\[\#6b4d35\], .tracker-dark .text-\[\#8a6045\] { color: #c0ab92 !important; }
+.tracker-dark .border-\[\#e8ebf2\], .tracker-dark .ring-\[\#e8ebf2\], .tracker-dark .border-\[\#eadfce\], .tracker-dark .border-\[\#dfd2c0\], .tracker-dark .border-\[\#d7c4ae\], .tracker-dark .border-\[\#d1bda7\] { border-color: #344155 !important; }
+.tracker-dark input, .tracker-dark select { border-color: #344155 !important; background-color: #141d2b !important; color: #eef3fa !important; color-scheme: dark; }
+.tracker-dark input::placeholder { color: #8290a5; }
+.tracker-dark .field-label { color: #c0cad8; }
+.tracker-dark .field-label small { color: #9ca8ba; }
+.tracker-dark .action-bottle, .tracker-dark .summary-blue, .tracker-dark .event-icon.feed { background: #1a2d4f !important; color: #a8c4ff !important; }
+.tracker-dark .action-wet, .tracker-dark .summary-yellow, .tracker-dark .event-icon.pee { background: #3a321c !important; color: #f5d66b !important; }
+.tracker-dark .action-dirty, .tracker-dark .event-icon.poop { background: #3d2d24 !important; color: #e1b08a !important; }
+.tracker-dark .action-sleep, .tracker-dark .summary-purple, .tracker-dark .event-icon.sleep { background: #2c244a !important; color: #cbb6ff !important; }
+.tracker-dark .event-icon.medication { background: #4a2636 !important; color: #ffc2d3 !important; }
+.tracker-dark .expected-events-panel { border-color: #324b78; background: #16233b; }
+.tracker-dark .expected-events-toggle:active { background: #1d3154; }
+.tracker-dark .expected-events-toggle-icon { background: #1a2d4f !important; color: #a8c4ff !important; }
+.tracker-dark .expected-task-row { border-color: #824257; background: #39212b; }
+.tracker-dark .expected-task-icon, .tracker-dark .expected-task-badge { background: #562e3e !important; color: #ffc2d3 !important; }
+.tracker-dark .expected-task-title { color: #ffc2d3; }
+.tracker-dark .expected-task-time, .tracker-dark .expected-task-detail { color: #e9adbf; }
+.tracker-dark .completed-task-icon, .tracker-dark .completed-task-badge, .tracker-dark .task-done-button { background: #173a31 !important; color: #91e2c7 !important; }
+.tracker-dark .recurring-task-badge, .tracker-dark .weekday-chip { background: #202b3d !important; color: #c0cad8 !important; }
+.tracker-dark .weekday-chip.is-selected { background: #3559d9 !important; color: #ffffff !important; }
+.tracker-dark .task-done-button.is-complete { background: #202b3d !important; color: #c0cad8 !important; }
+.tracker-dark .expected-events-chevron { color: #9db5ef; }
+.tracker-dark .expected-events-list { border-color: #324b78; }
+.tracker-dark .expected-events-list > article + article { border-color: #2c4064; }

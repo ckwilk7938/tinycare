@@ -1,0 +1,1 @@
+ALTER TABLE `baby_events` ADD `duration_minutes` integer;

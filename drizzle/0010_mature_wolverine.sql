@@ -1,0 +1,2 @@
+ALTER TABLE `baby_events` ADD `feeding_status` text DEFAULT 'completed' NOT NULL;--> statement-breakpoint
+CREATE INDEX `baby_events_feeding_status_idx` ON `baby_events` (`feeding_status`,`occurred_at`);
